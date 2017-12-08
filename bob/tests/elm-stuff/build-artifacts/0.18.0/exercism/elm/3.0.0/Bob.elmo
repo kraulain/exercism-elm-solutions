@@ -1,0 +1,25 @@
+var _exercism$elm$Bob$hey = function (question) {
+	var isQuestion = function (question) {
+		return A2(_elm_lang$core$String$endsWith, '?', question);
+	};
+	var isNumericQuestion = function (question) {
+		return A2(_elm_lang$core$String$all, _elm_lang$core$Char$isDigit, question);
+	};
+	var isShouting = function (question) {
+		return _elm_lang$core$Native_Utils.eq(
+			_elm_lang$core$String$toUpper(question),
+			question) && _elm_lang$core$Native_Utils.eq(
+			isNumericQuestion(
+				A2(_elm_lang$core$String$dropRight, 1, question)),
+			false);
+	};
+	var isEmptyQuestion = function (question) {
+		return _elm_lang$core$String$isEmpty(
+			_elm_lang$core$String$trim(question));
+	};
+	return isEmptyQuestion(question) ? 'Fine. Be that way!' : (isNumericQuestion(
+		A2(
+			_elm_lang$core$String$join,
+			'',
+			A2(_elm_lang$core$String$split, ', ', question))) ? 'Whatever.' : ((isQuestion(question) && (!isShouting(question))) ? 'Sure.' : (isShouting(question) ? 'Whoa, chill out!' : 'Whatever.')));
+};
