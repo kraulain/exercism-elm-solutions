@@ -1,0 +1,18 @@
+var _exercism$elm$Leap$isLeapYear = function (year) {
+	var isDivBy400 = function (year) {
+		return _elm_lang$core$Native_Utils.eq(
+			A2(_elm_lang$core$Basics$rem, year, 400),
+			0);
+	};
+	var isDivBy100 = function (year) {
+		return _elm_lang$core$Native_Utils.eq(
+			A2(_elm_lang$core$Basics$rem, year, 100),
+			0);
+	};
+	var isDivBy4 = function (year) {
+		return _elm_lang$core$Native_Utils.eq(
+			A2(_elm_lang$core$Basics$rem, year, 4),
+			0);
+	};
+	return (!isDivBy4(year)) ? false : true;
+};
